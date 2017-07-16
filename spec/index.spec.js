@@ -1,12 +1,16 @@
 const pipe = require('./../src')
 
 const hello = 'hello'
-const duplicate = str => `${str}-${str}`
+const capitalize = str => str[0].toUpperCase() + str.substring(1)
 
 describe('pipe', () => {
-  it('should process', () => {
-    const result = pipe(hello).through(duplicate)
+  it('should perform simple function call with given argument', () => {
+    const result = pipe(hello).through(capitalize)
+    expect(result).toBe('Hello')
+  })
 
-    expect(result).toBe('hello-hello')
+  it('should process prototype method call', () => {
+    const result = pipe(hello).through([String.prototype.concat, ' world'])
+    expect(result).toBe('hello world')
   })
 })
