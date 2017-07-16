@@ -1,14 +1,16 @@
 {
   "name": "pipe-js",
-  "version": "0.1.0-beta.0",
+  "version": "0.0.0-development",
   "description": "A backwards-compatible way of streamlining chained function calls in a readable and functional manner",
   "main": "src/index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrii-maglovanyi/pipe-js.git"
+    "url": "https://github.com/andrii-maglovanyi/pipe-js.git"
   },
   "keywords": [
     "pipes",
@@ -23,6 +25,14 @@
   },
   "homepage": "https://github.com/andrii-maglovanyi/pipe-js#readme",
   "devDependencies": {
-    "jasmine": "^2.6.0"
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "jasmine": "^2.6.0",
+    "semantic-release": "^6.3.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
