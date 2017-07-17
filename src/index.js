@@ -6,8 +6,17 @@ const invoke = (arg, val) =>
     arg(val)
 
 module.exports = value => {
+  const funcs = []
+  
   pipe.through = (...funcs) =>
     funcs.reduce((val, fn) => invoke(fn, val), value)
+
+  pipe.add = fn => {
+    funcs.push(fn)
+    return pipe
+  }
+
+  pipe.run = () => pipe.through(...funcs)
 
   return pipe
 }
