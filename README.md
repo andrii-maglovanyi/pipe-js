@@ -19,5 +19,5 @@ const capitalize = str => str[0].toUpperCase() + str.substring(1)
 const duplicate = str => `${str}-${str}`
 const exclaim = str => str + '!'
 
-pipe(hello).through(capitalize, duplicate, [String.prototype.concat, ' world'], exclaim) // Hello-hello world!
+pipe(hello).through(duplicate, capitalize, [String.prototype.concat, ' world'], exclaim) // Hello-hello world!
 ```
