@@ -2,6 +2,9 @@ language: node_js
 cache:
   directories:
     - node_modules
+branches:
+  only:
+    - master
 notifications:
   email: false
 node_js:
@@ -11,7 +14,7 @@ before_script:
   - npm prune
 script:
   - npm run test
-  - npm run check-coverage
+  - npm run build
 after_success:
   - npm run report-coverage
   - npm run semantic-release
